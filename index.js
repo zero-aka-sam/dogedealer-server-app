@@ -19,7 +19,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/getAll", async (req, res) => {
+app.get("/server_app/getAll", async (req, res) => {
   const allTime = await getAllTimeRewards();
   const monthly = await getMonthlyrewards();
   const weekly = await getWeeklyrewards();
@@ -63,7 +63,7 @@ app.get("/getAll", async (req, res) => {
     .json({ allTimeRewards, monthlyRewards, weeklyRewards, dailyRewards });
 });
 
-app.get("/getReferrals/:id", async (req, res) => {
+app.get("/server_app/getReferrals/:id", async (req, res) => {
   const { id } = req.params;
   const result = await referrals(id);
   console.log(result);
